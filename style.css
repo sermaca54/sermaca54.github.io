@@ -1,0 +1,530 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+a {
+  text-decoration: none;
+}
+    #imagen1 {
+        position: absolute;
+        right: 761px;
+        width: 300px;
+        height: 300px;
+        border-radius: 0%;
+        top: 158px;
+
+    }
+
+    #imagen2 {
+        position: absolute;
+        right: 461px;
+        width: 300px;
+        height: 300px;
+        border-radius: 0%;
+        top: 450px;
+    }
+
+    #imagen3 {
+        position: relative;
+        right: -750px;
+        width: 300px;
+        height: 300px;
+        border-radius: 0%;
+        top: 150px;
+        margin-bottom: 550px;
+    }
+
+    #imagen3-1 {
+        position: absolute;
+        right: 761px;
+        width: 300px;
+        height: 300px;
+        border-radius: 0%;
+        top: 450px;
+    }
+
+    #texto-inicio-1 {
+      background-color: rgb(224, 218, 218);
+      border-radius: 35px;
+      border-style:  ridge;
+      border-color: rgb(102, 92, 92);
+      border-width: 5px;
+      width: 750px;
+      height: 73px;
+      padding-left: 20px;
+      padding-top: 35px;
+      font-family: fantasy;
+      font-size: 18px;
+      text-align: left;
+      position: absolute;
+      top: -62px;
+      z-index: 1;
+      right: 350px;
+    }
+
+    #imagen-inicio {
+      position: absolute;
+      top: -10px;
+      z-index: 2;
+      width: 130px;
+      height: 130px;
+      right: 680px;
+      border-radius: 100%;
+      border-bottom-style: ridge;
+      border-bottom-width: 6px;
+      border-bottom-color: rgb(102, 92, 92);
+      border-left-style: ridge;
+      border-left-width: 6px;
+      border-left-color: rgb(102, 92, 92);
+      border-right-style: ridge;
+      border-right-width: 6px;
+      border-right-color: rgb(102, 92, 92);
+    }
+
+
+    #texto-inicio-2 {
+      font-family: fantasy;
+      font-size: 18px;
+      color: rgb(0, 0, 0);
+      position: absolute;
+      top: -22px;
+      z-index: 3;
+      right: 385px;
+    }
+
+    #letra-1 {
+      color: rgb(64, 62, 62);
+    }
+
+    #letra-2 {
+      color: rgb(64, 62, 62);
+    }
+
+    #tabla-de-contenido {
+      position: absolute;
+      bottom: 170px;
+      left: 40px;
+      height: 450px;
+
+    }
+    #contenido {
+      color: rgb(82, 79, 78);
+      /*background-color: rgb(222, 217, 217)*/;
+      width: 240px;
+      height: 60px;
+      font-size: 35px;
+      font-family: fantasy;
+      font-weight: normal;
+      text-align: left;
+      /*border-style: ridge;*/
+      border-width: 5px;
+      border-bottom-style: none;
+    }
+
+    #lista-de-contenido {
+      /*background-color: rgb(242, 235, 235);*/
+      list-style: upper-roman;
+      margin-top: -38px;
+      font-size: 22px;
+      font-family: fantasy;
+      line-height: 30px;
+      /*border-style: ridge;*/
+      border-width: 5px;
+      border-top-style: none;
+      border-color: rgb(214, 209, 208);
+      padding-top: 10px;
+      width: 200px;
+    }
+
+    .texto-de-la-lista {
+      font-size: 17px;
+      padding-left: 10px;
+      width: 300px;
+
+    }
+
+    .titulo-lista {
+      text-decoration: none
+
+    }
+
+    #links {
+      position: absolute;
+      bottom: 160px;
+      right: 220px;
+      height: 400px;
+      font-size: 20px;
+      font-family: fantasy;
+      text-align: center;
+
+    }
+
+    #titulo-links {
+      text-align: center;
+      position: absolute;
+      width: 300px;
+      right: -160px;
+      top: -5px;
+      color: rgb(54, 51, 51);
+      font-size: 32px;
+
+    }
+
+    #imagen4-1{
+      width: 140px;
+      height: 140px;
+      border-radius: 100%;
+      margin-bottom: 10px;
+
+    }
+
+    .imagen4-2 {
+      width: 140px;
+      height: 140px;
+      border-radius: 100%;
+
+    }
+
+    #links-2 {
+      position: absolute;
+      bottom: 85px;
+      right: 30px;
+      height: 400px;
+      font-size: 20px;
+      font-family: fantasy;
+      text-align: center;
+    }
+
+    #links-parrafo1 {
+      position: absolute;
+      bottom: -60px;
+      right: 0px;
+      height: 400px;
+      font-size: 20px;
+      font-family: fantasy;
+      text-align: center;
+      width: 200px;
+
+    }
+    #musica {
+      background-color: rgb(235, 228, 229);
+      color: rgb(83, 87, 84);
+      font-family: fantasy;
+      font-weight: lighter;
+      text-align: left;
+      font-size: 55px;
+      padding-left: 30px;
+
+
+    }
+
+    #artista {
+      background-color: rgb(235, 228, 229);
+      color: rgb(83, 87, 84);
+      font-family: fantasy;
+      text-align: right;
+      font-weight: lighter;
+      font-size: 55px;
+      padding-right: 30px;
+
+    }
+
+    #album {
+      color: rgb(83, 87, 84);
+      background-color: rgb(235, 228, 229);
+      font-family: fantasy;
+      font-weight: lighter;
+      text-align: left;
+      font-size: 55px;
+      padding-left: 30px;
+
+
+    }
+
+    #cancion {
+      color: rgb(83, 87, 84);
+      font-family: fantasy;
+      font-weight: lighter;
+      text-align: right;
+      font-size: 55px;
+      background-color: rgb(235, 228, 229);
+      padding-right: 30px;
+
+    }
+
+    #final {
+      font-family: fantasy;
+      font-weight: lighter;
+      text-align: right;
+      font-size: 20px;
+      padding-right: 30px;
+
+    }
+
+    #esquina-izquierda {
+      position: absolute;
+      right: 1170px;
+      top: -20px;
+    }
+
+    #imagen4 {
+        width: 90px;
+        height: 90px;
+        border-radius: 100%;
+        position: absolute;
+        left: -190px;
+        top: 15px;
+    }
+
+    #imagen5 {
+        width: 80px;
+        height: 80px;
+        border-radius: 0%;
+        position: absolute;
+        left: -90px;
+        top: 20px;
+    }
+
+    #imagen5-1 {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      left: -260px;
+      top: 35px;
+    }
+
+    #imagen5-2 {
+      width: 100px;
+      height: 90px;
+      position: absolute;
+      left: 1200px;
+      top: -5px;
+    }
+
+    #imagen5-3 {
+      width: 130px;
+      height: 130px;
+      border-radius: 100%;
+      position: absolute;
+      left: 60px;
+      top: 650px;
+    }
+
+    #imagen5-4 {
+      width: 130px;
+      height: 130px;
+      border-radius: 100%;
+      position: absolute;
+      left: 250px;
+      top: 645px;
+    }
+
+    #imagen5-5 {
+      width: 210px;
+      height: 120px;
+      border-radius: 100%;
+      position: absolute;
+      left: 240px;
+      top: 530px;
+    }
+
+
+
+    #esquina-derecha {
+      font-size: 12px;
+      text-align: right;
+      font-family: fantasy;
+      font-weight: lighter;
+      width: 200px;
+      position: absolute;
+      left: 1310px;
+      top: 0px;
+    }
+
+    #parrafo1 {
+      font-size: 22px;
+      text-align: left;
+      font-family: fantasy;
+      line-height: 60px;
+      padding-left: 30px;
+      margin-bottom: 130px;
+    }
+
+    #imagen6 {
+        float: right;
+        position: relative;
+        right: 50px;
+        width: 800px;
+        height: 450px;
+        border-radius: 1%;
+        margin-bottom: 40px;
+        bottom: -60px;
+        margin-left: 100px;
+    }
+
+    #parrafo2 {
+      font-size: 22px;
+      text-align: right;
+      font-family: fantasy;
+      line-height: 60px;
+      margin-bottom: 150px;
+      padding-right: 40px;
+    }
+
+    #imagen7 {
+      float: left;
+      position: relative;
+      right: -20px;
+      width: 300px;
+      height: 300px;
+      border-radius: 100%;
+      top: 0px;
+    }
+
+    #imagen8 {
+      float: left;
+      position: relative;
+      right: -60px;
+      width: 300px;
+      height: 300px;
+      border-radius: 100%;
+      margin-right: 160px;
+      margin-bottom: 150px;
+    }
+
+    #imagen9 {
+      float: right;
+      position: relative;
+      bottom: -26px;
+      right: 400px;
+      width: 300px;
+      height: 300px;
+      border-top-left-radius: 20%;
+      margin-left: -50;
+    }
+
+    #imagen9-2 {
+      float: right;
+      position: absolute;
+      bottom: -2981px;
+      right: 110px;
+      width: 300px;
+      height: 300px;
+      border-top-right-radius: 20%;
+      margin-left: none;
+    }
+
+    #imagen9-3 {
+      float: right;
+      position: absolute;
+      right: 110px;
+      bottom: -3281px;
+      width: 300px;
+      height: 300px;
+      border-bottom-right-radius: 20%;
+    }
+
+    #imagen9-4 {
+      float: right;
+      position: absolute;
+      right: 408px;
+      bottom: -3281px;
+      width: 300px;
+      height: 300px;
+      border-bottom-left-radius: 20%;
+    }
+
+    #imagen8-2 {
+      float: left;
+        position: absolute;
+        right: 1190px;
+        width: 300px;
+        height: 300px;
+        border-radius: 100%;
+        bottom: -1750px;
+
+    }
+
+    #imagen8-3 {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 100%;
+      bottom: -1750px;
+      left: 370px;
+    }
+
+    #imagen8-4 {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      right: -250px;
+      z-index: 6;
+      margin-bottom: 130px;
+    }
+
+    #imagen8-5 {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      right: -248px;
+      margin-bottom: 130px;
+      z-index: 7;
+    }
+
+    #imagen8-6 {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      right: -43px;
+      bottom: 175px;
+      z-index: 4;
+      border-radius: 100%;
+    }
+
+    #imagen8-7 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      right: 1062px;
+      bottom: -2315px;
+      z-index: 5;
+      border-radius: 100%;
+
+    }
+
+
+    #imagen10 {
+        position: relative;
+        float: left;
+        right: -120px;
+        width: 620px;
+        height: 620px;
+        border-radius: 100%;
+        top: 30px;
+        margin-right: 200px;
+    }
+
+
+    #parrafo3 {
+      font-size: 22px;
+      text-align: left;
+      font-family: fantasy;
+      line-height: 60px;
+      padding-left: 40px;
+      width: 600px;
+      margin-bottom: 120px;
+    }
+
+    #parrafo4 {
+      font-size: 22px;
+      text-align: right;
+      font-family: fantasy;
+      line-height: 60px;
+      padding-right: 30px;
+      margin-bottom: 40px;
+    }
+
+    .listo {
+      margin: auto;
+    }
