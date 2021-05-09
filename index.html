@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Interactive slideshow</title>
+        <style>
+        body {
+            background: rgb(229, 253, 255);
+        }
+
+        img {
+            position: absolute;
+            top: 40px;
+            right: 300px;
+            height: 273px;
+            border-style: groove;
+            border-width: 8px;
+            border-color: rgb(29, 120, 138);
+        }
+
+        #descripcion {
+            position: absolute;
+            top: 320px;
+            right: 370px;
+            font-size: 22px;
+            font-style: italic;
+            font-weight: bold;
+            color: rgb(45, 117, 117);
+
+        }
+        #boton {
+            position: absolute;
+            top: 380px;
+            right: 360px;
+            font-weight: bold;
+            font-size: 22px;
+            background: rgb(188, 235, 233);
+            color: rgb(0, 133, 133);
+            border-color: rgb(25, 198, 207);
+            border-width: 5px;
+            border-radius: 50px;
+        }
+
+        #boton_2 {
+            position: absolute;
+            top: 380px;
+            right: 530px;
+            font-weight: bold;
+            font-size: 22px;
+            background: rgb(188, 235, 233);
+            color: rgb(0, 133, 133);
+            border-color: rgb(25, 198, 207);
+            border-width: 5px;
+            border-radius: 50px;
+        }
+
+        #boton_3 {
+            position: absolute;
+            top: 160px;
+            right: 410px;
+            width: 194px;
+            height: 61px;
+            font-weight: bold;
+            font-size: 22px;
+            background: rgb(188, 235, 233);
+            color: rgb(0, 133, 133);
+            border-color: rgb(25, 198, 207);
+            border-width: 5px;
+            border-radius: 50px;
+        }
+
+        </style>
+    </head>
+    <body>
+
+    <br>
+    <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/landscapes/fields-of-grain.png" width="400" alt="Mushrooms">
+    <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/landscapes/beach-at-dusk.png" width="400" alt="Mushrooms">
+    <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/landscapes/beach-in-hawaii.png" width="400" alt="Mushrooms">
+    <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/landscapes/beach-sunset.png" width="400" alt="Mushrooms">
+    <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/landscapes/mountains-sunset.png" width="400" alt="Mushrooms">
+
+    <p id ="descripcion"></p>
+    <button type="button" id="boton">Next →</button>
+
+    <button type="button" id="boton_2">← Prev</button>
+
+    <button type="button" id="boton_3">Load Gallery</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+
+    var detalle = ["A Beautiful Landscape", "A Beautiful Beach", "A Picture Of Hawai", "An Incredible Sunset", "A Sunset in the Desert"];
+
+
+    $("img").hide();
+    $("#boton").hide();
+    $("#boton_2").hide();
+
+    var fotos = [];
+    var conteo = 0;
+
+    $("img").each(function(index, element) {
+        fotos.push($(this));
+    });
+
+
+    $("#boton_3").on("click", function() {
+        var $descripcion = $("#descripcion");
+        $descripcion.html(detalle[0]);
+        $descripcion.hide();
+        $("#boton_3").hide();
+        $("#boton").fadeIn(1000);
+        $("#boton_2").fadeIn(1000);
+        fotos[0].fadeIn(1000, function() {
+            fotos[0].animate({
+                width: "470px",
+                right: "250px"
+            }, 1000);
+            $descripcion.fadeIn(1000);
+        });
+
+
+    });
+
+
+
+    $("#boton").on("click", function() {
+        $("p").hide();
+        var $descripcion = $("#descripcion");
+        conteo++;
+        if (conteo ===  fotos.length) {
+            conteo = 0;
+        }
+        $("img").hide();
+        fotos[conteo].fadeIn(1000, function () {
+        fotos[conteo].animate( {
+            width: "470px",
+            right: "250px"
+        }, 1000);
+        $descripcion.html(detalle[conteo]);
+        $descripcion.hide();
+        $descripcion.fadeIn(1000);
+
+    });
+
+
+    });
+
+    $("#boton_2").on("click", function() {
+        $("p").hide();
+        var $descripcion = $("#descripcion");
+        conteo--;
+        if (conteo ===  -1) {
+            conteo = fotos.length - 1;
+        }
+        $("img").hide();
+        fotos[conteo].fadeIn(1000, function () {
+        fotos[conteo].animate( {
+            width: "470px",
+            right: "250px"
+        }, 1000);
+        $descripcion.html(detalle[conteo]);
+        $descripcion.hide();
+        $descripcion.fadeIn(1000);
+
+    });
+
+
+    });
+
+
+
+
+    </script>
+
+    </body>
+</html>
