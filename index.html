@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testing</title>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
+
+ </head>
+ <body>
+
+  <script type="text/processing" data-processing-target="mysketch">
+
+    void setup(){
+       size(1000, 600);
+
+     }
+
+     var Car = function() {
+        this.position = new PVector(700, 400);
+        this.velocity = new PVector(0, 0);
+        this.acceleration = new PVector(0, 0);
+    };
+
+    Car.prototype.update = function() {
+         if (this.velocity.x <= 0 && this.acceleration.x < 0) {
+            this.velocity.set(0,0);
+            this.acceleration.set(0, 0);
+        }
+        this.velocity.add(this.acceleration);
+        this.velocity.limit(10);
+
+        this.position.add(this.velocity);
+
+    };
+
+    Car.prototype.display = function() {
+        stroke(0);
+        strokeWeight(2);
+        fill(255, 0, 0);
+        rect(this.position.x-52, this.position.y-59, 100, 50);
+        rect(this.position.x-74, this.position.y-30, 150, 50);
+        fill(92, 92, 92);
+        ellipse(this.position.x + 30, this.position.y + 10, 50, 50);
+        ellipse(this.position.x-40, this.position.y + 10, 50, 50);
+    };
+
+    Car.prototype.checkEdges = function() {
+        if (this.position.x > 1100) {
+            this.position.x = 0;
+        }
+        else if (this.position.x < 0) {
+            this.position.x = width;
+        }
+    };
+
+    var car = new Car();
+    var masa = 40;
+    var posicion_x = 750;
+    var posicion_y = 540;
+    var posicion_x_2 = 200;
+    var posicion_y_2 = 540;
+
+    var comprobar = function(x, y) {
+      var d = dist(x, y, posicion_x, posicion_y);
+      if (d < masa) {
+          return true;
+        }
+    };
+
+    var comprobar_2 = function(x, y) {
+      var d = dist(x, y, posicion_x_2, posicion_y_2);
+      if (d < masa) {
+          return true;
+        }
+    };
+
+    void draw() {
+      if (mousePressed && comprobar(mouseX, mouseY)) {
+        car.acceleration.set(0.05, 0);
+    } else if (mousePressed && comprobar_2(mouseX, mouseY)) {
+        car.acceleration.set(-0.05, 0);
+    } else {
+        car.acceleration.set(0,0);
+    }
+
+      background(255, 255, 255);
+      car.update();
+      car.checkEdges();
+      car.display();
+      fill(125, 125, 125);
+      noStroke();
+      ellipse(posicion_x, posicion_y, masa * 2, masa * 2);
+      ellipse(posicion_x_2, posicion_y_2, masa * 2, masa * 2);
+    }
+  </script>
+
+  <canvas id="mysketch"></canvas>
+
+ </body>
+</html>
