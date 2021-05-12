@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testing</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
+ </head>
+ <body>
+
+
+  <script type="text/processing" data-processing-target="mysketch">
+
+    void setup(){
+       size(1000, 450);
+
+     }
+     angleMode = "radians";
+
+     var Car = function() {
+         this.position = new PVector(200, 200);
+         this.velocity = new PVector(0, 0);
+         this.acceleration = new PVector(0, 0);
+         this.topspeed = 4;
+         this.stop = true;
+         this.start = false;
+     };
+
+     Car.prototype.impulsor = function() {
+         var impulsor = this.velocity.get();
+         impulsor.mult(1.25);
+         this.position.add(impulsor);
+     };
+
+
+     Car.prototype.update = function () {
+         this.velocity.add(this.acceleration);
+         this.velocity.limit(this.topspeed);
+         this.position.add(this.velocity);
+         this.acceleration.mult(0);
+     };
+
+     Car.prototype.applyForce = function(force) {
+         this.acceleration.add(force);
+     };
+
+     Car.prototype.turnLeft = function() {
+       if (this.stop === false) {
+         var fuerza = this.velocity.get();
+         fuerza.rotate(-0.15);
+         this.applyForce(fuerza);
+
+       } else if (this.stop === true) {
+          var paro = this.velocity.get();
+          paro.mult(-1);
+          var parado = PVector.add(this.velocity, paro);
+          this.applyForce(parado);
+       }
+     };
+
+     Car.prototype.turnRight = function() {
+       if (this.stop === false) {
+         var fuerza = this.velocity.get();
+         fuerza.rotate(0.15);
+         this.applyForce(fuerza);
+       } else if (this.stop === true) {
+         var paro = this.velocity.get();
+         paro.mult(-1);
+         var parado = PVector.add(this.velocity, paro);
+         this.applyForce(parado);
+       }
+
+     };
+
+     Car.prototype.brake = function() {
+       var velocidad = this.velocity.get();
+       var seguro = this.velocity.get();
+       seguro.mult(-1);
+       velocidad.mult(-1);
+       velocidad.div(8);
+       var comprobar = PVector.add(this.velocity, seguro);
+       var paro = PVector.add(this.velocity, velocidad);
+       if (paro === comprobar) {
+           this.velocity.set(paro);
+           this.stop = true;
+       } else if (paro !== comprobar) {
+           this.velocity.set(paro);
+           this.stop = true;
+       }
+
+     };
+
+     Car.prototype.mover = function() {
+       if (this.start === false) {
+         this.start = true;
+         var copia_velocidad = this.velocity.get();
+         var aumento = new PVector(4, 0);
+         var velocidad = PVector.add(copia_velocidad, aumento);
+         this.velocity.set(velocidad);
+         this.stop = false;
+
+       } else if (this.start === true) {
+         var copia_velocidad = this.velocity.get();
+         var aumento = this.velocity.get();
+         aumento.normalize();
+         var cifra = new PVector(0.001, 0.001);
+         aumento.add(cifra);
+         var velocidad = PVector.add(copia_velocidad, aumento);
+         this.velocity.set(velocidad);
+         this.stop = false;
+
+       }
+
+     };
+
+     Car.prototype.display = function () {
+         // Step 3:
+         var angle = this.velocity.heading();
+
+         stroke(0, 0, 0);
+         strokeWeight(2);
+         fill(127, 127, 127);
+         pushMatrix();
+         rectMode(CENTER);
+         translate(this.position.x, this.position.y);
+         // Step 3:
+         rotate(angle);
+         // draw the car
+         fill(255, 0, 0);
+         rect(0, 0, 70, 30);
+         rect(0, 0, 29, 30);
+         fill(79, 79, 79);
+         ellipse(-15, -18, 20, 8);
+         ellipse(-15, 18, 20, 8);
+         ellipse(15, 18, 20, 8);
+         ellipse(15, -18, 20, 8);
+         rect(21, 0, 11, 26);
+         popMatrix();
+     };
+
+     Car.prototype.checkEdges = function () {
+         if (this.position.x > 1000) {
+             this.position.x = 0;
+         } else if (this.position.x < 0) {
+             this.position.x = 1000
+         }
+
+         if (this.position.y > 310) {
+             this.position.y = -30;
+         } else if (this.position.y < -30) {
+             this.position.y = 310;
+         }
+     };
+
+     var car = new Car();
+     var masa = 40;
+     var posicion_x = 750;
+     var posicion_y = 395;
+     var posicion_x_2 = 200;
+     var posicion_y_2 = 395;
+     var posicion_encender_x = 70;
+     var posicion_encender_y = 370;
+     var posicion_apagar_x = 270;
+     var posicion_apagar_y = 370;
+     var posicion_impulsar_x = 820;
+     var posicion_impulsar_y = 370;
+     var comprobar = function(x, y) {
+       var d = dist(x, y, posicion_x, posicion_y);
+       if (d < masa) {
+           return true;
+         }
+     };
+
+     var comprobar_2 = function(x, y) {
+       var d = dist(x, y, posicion_x_2, posicion_y_2);
+       if (d < masa) {
+           return true;
+         }
+     };
+
+     var encender = function(x, y) {
+       if ((x >= posicion_encender_x && x <= (posicion_encender_x + 60)) && (y >= posicion_encender_y && (y <= posicion_encender_y + 40))) {
+         return true;
+       }
+     };
+
+     var apagar = function(x, y) {
+       if ((x >= posicion_apagar_x && x <= (posicion_apagar_x + 60)) && (y >= posicion_apagar_y && (y <= posicion_apagar_y + 40))) {
+         return true;
+       }
+     };
+
+     var impulsar = function(x, y) {
+       if ((x >= posicion_impulsar_x && x <= (posicion_impulsar_x + 60)) && (y >= posicion_impulsar_y && (y <= posicion_impulsar_y + 40))) {
+         return true;
+       }
+     };
+
+     var boton_acelerar_pulsado = function() {
+       fill(69, 67, 67);
+       noStroke();
+       ellipse(posicion_x, posicion_y, masa * 2, masa * 2);
+     };
+
+     var boton_acelerar_sin_pulsar = function() {
+       fill(125, 125, 125);
+       stroke(0, 0, 0);
+       strokeWeight(1);
+       ellipse(posicion_x, posicion_y, masa * 2, masa * 2);
+     };
+
+     var boton_frenar_pulsado = function() {
+       fill(69, 67, 67);
+       noStroke();
+       ellipse(posicion_x_2, posicion_y_2, masa * 2, masa * 2);
+
+     };
+
+     var boton_frenar_sin_pulsar = function() {
+       fill(125, 125, 125);
+       noStroke();
+       stroke(0, 0, 0);
+       strokeWeight(1);
+       ellipse(posicion_x_2, posicion_y_2, masa * 2, masa * 2);
+
+     };
+
+     var boton_izquierdo_sin_pulsar = function() {
+       fill(73, 74, 74);
+       stroke(0, 0, 0);
+       strokeWeight(3);
+       triangle(220, 375, 220, 415, 170, 395);
+     };
+
+     var boton_izquierdo_pulsado = function() {
+       fill(39, 40, 41);
+       triangle(220, 375, 220, 415, 170, 395);
+     };
+
+     var boton_derecho_sin_pulsar = function() {
+       fill(73, 74, 74);
+       stroke(0, 0, 0);
+       strokeWeight(3);
+       triangle(730, 375, 730, 415, 780, 395);
+     };
+
+     var boton_derecho_pulsado = function() {
+       fill(39, 40, 41);
+       triangle(730, 375, 730, 415, 775, 395);
+     };
+
+     var panel = function() {
+       strokeWeight(10);
+       rect(500, 395, 990, 98);
+     };
+
+     var boton_encender = function() {
+       strokeWeight(3);
+       rectMode(CORNER);
+       rect(posicion_encender_x, posicion_encender_y, 60, 40);
+       fill(3, 163, 25);
+       textSize(25);
+       text("ON", 80, 400);
+     };
+
+     var boton_apagar = function() {
+       strokeWeight(3);
+       fill(191, 2, 2);
+       rectMode(CORNER);
+       rect(posicion_apagar_x, posicion_apagar_y, 60, 40);
+       fill(255, 255, 255);
+       text("OF", 280, 400);
+     };
+
+     var boton_impulsar = function() {
+       background(102, 209, 104);
+       panel();
+       strokeWeight(3);
+       rectMode(CORNER);
+       rect(posicion_impulsar_x, posicion_impulsar_y, 60, 40);
+
+       strokeWeight(5);
+       line(850, 380, 830, 400);
+       line(850, 380, 870, 400);
+     };
+
+    void draw() {
+
+      boton_impulsar();
+
+      boton_encender();
+
+      boton_apagar();
+
+      if (mousePressed && comprobar_2(mouseX, mouseY)) {
+        car.turnLeft();
+        boton_acelerar_sin_pulsar();
+        boton_derecho_sin_pulsar();
+        boton_frenar_pulsado();
+        boton_izquierdo_pulsado();
+      } else if (mousePressed && comprobar(mouseX, mouseY)) {
+        car.turnRight();
+        boton_frenar_sin_pulsar();
+        boton_izquierdo_sin_pulsar();
+        boton_acelerar_pulsado();
+        boton_derecho_pulsado();
+      } else if (mousePressed && impulsar(mouseX, mouseY)) {
+        car.impulsor();
+        boton_acelerar_sin_pulsar();
+        boton_derecho_sin_pulsar();
+        boton_frenar_sin_pulsar();
+        boton_izquierdo_sin_pulsar();
+      } else if (mousePressed && apagar(mouseX, mouseY)) {
+        car.brake();
+        boton_acelerar_sin_pulsar();
+        boton_derecho_sin_pulsar();
+        boton_frenar_sin_pulsar();
+        boton_izquierdo_sin_pulsar();
+      } else if (mousePressed && encender(mouseX, mouseY)) {
+        car.mover();
+        boton_acelerar_sin_pulsar();
+        boton_derecho_sin_pulsar();
+        boton_frenar_sin_pulsar();
+        boton_izquierdo_sin_pulsar();
+      } else {
+        boton_acelerar_sin_pulsar();
+        boton_derecho_sin_pulsar();
+        boton_frenar_sin_pulsar();
+        boton_izquierdo_sin_pulsar();
+      }
+
+
+      car.update();
+      car.checkEdges();
+      car.display();
+
+    }
+
+  </script>
+
+  <canvas id="mysketch"></canvas>
+
+ </body>
+</html>
