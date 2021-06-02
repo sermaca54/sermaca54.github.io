@@ -1,0 +1,143 @@
+body {
+  background-color: #7bc0e8;
+}
+
+main {
+  background-color: #7bc0e8;
+  height: 2200px;
+  text-align: center;
+}
+.container {
+  width: 1000px;
+  margin: auto;
+  text-align: center;
+  padding-top: 600px;
+}
+
+#form {
+  padding-top: 100px;
+  text-align: center;
+}
+#rodamientos_opciones {
+  margin-bottom: 80px;
+  padding-top: 10px;
+  font-size: 60px;
+  width: 800px;
+  height: 450px;
+  text-align: center;
+
+
+}
+#menu_consultar_rodamiento {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+  width: 800px;
+  height: 110px;
+}
+
+#menu_consultar_precio {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+  width: 530px;
+  height: 100px;
+}
+
+#menu_calcular_precio {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+  width: 800px;
+  height: 100px;
+}
+#menu_retirar_rodamiento {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+  width: 700px;
+}
+#boton_historial_ventas {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+  width: 800px;
+  height: 100px;
+}
+#boton_calcular_rodamientos {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+}
+#boton_orden_rodamientos {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+  width: 800px;
+  height: 100px;
+}
+#boton_retirar_rodamientos {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+  width: 800px;
+  height: 100px;
+}
+#boton_regresar {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+  width: 400px;
+  height: 100px;
+}
+
+#boton_todos_precios {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+  width: 630px;
+  height: 100px;
+}
+
+#menu_consultar_disponibilidad {
+  text-align: center;
+  font-size: 70px;
+  width: 800px;
+  height: 100px;
+  margin-bottom: 40px;
+}
+#respuesta_campo {
+  position: relative;
+  left: 50px;
+  padding-top: 60px;
+  padding-bottom: 10px;
+  background-color: #0889d4;
+  width: 900px;
+  height: 150px;
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 40px;
+
+}
+
+#imagen_rodamientos_precios {
+  width: 910px;
+  height: 430px;
+  margin-bottom: 40px;
+}
+
+#imagen_rodamientos_ventas {
+  width: 950px;
+  height: 450px;
+  margin-bottom: 40px;
+  position: relative;
+  right: 0px;
+
+}
+
+#calcular_rodamiento {
+  margin-bottom: 40px;
+  font-size: 70px;
+  text-align: center;
+
+}
