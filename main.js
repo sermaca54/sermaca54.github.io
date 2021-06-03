@@ -14,6 +14,9 @@ var boton_orden_rodamientos = $("#boton_orden_rodamientos");
 var boton_calcular_rodamientos = $("#boton_calcular_rodamientos");
 var boton_retirar_rodamientos = $("#boton_retirar_rodamientos");
 var retirar_rodamiento = $("#menu_retirar_rodamiento");
+var foto_menu_precios = $("#foto_menu_precios");
+var imagen_menu_precios = $("#imagen_menu_precios");
+var foto_menu_ventas = $("#foto_menu_ventas");
 
 var container = $(".container")
 
@@ -44,6 +47,10 @@ boton_calcular_rodamientos.hide();
 retirar_rodamiento.hide();
 label.hide();
 foto_menu_disponible.hide();
+foto_menu_precios.hide();
+imagen_menu_precios.hide();
+foto_menu_ventas.hide();
+
 //Oculta el input para calcular la orden de rodamientos
 input_calcular_rodamientos.hide();
 
@@ -104,9 +111,9 @@ boton_consultar_precio.on("click", function(event) {
     rodamiento_precio(rodamiento_carro);
   } else {
     campo_respuesta.css("width", "900px");
-    campo_respuesta.css("height", "250px");
+    campo_respuesta.css("height", "280px");
     campo_respuesta.css("font-size", "80px");
-    campo_respuesta.css("padding-top", "1px");
+    campo_respuesta.css("padding-top", "0px");
     campo_respuesta.html(`<p>Por Favor Introduzca Un Rodamiento, y Solo Seleccione Uno</p>`);
   }
 
@@ -161,10 +168,12 @@ boton_precio.on("click", function(event) {
   foto_portada_superior.hide();
   foto_portada_inferior.hide();
 
+  titulo.text("Precios");
+
   container.css("padding-top", "130px");
   campo_respuesta.css("width", "900px");
   campo_respuesta.css("height", "150px");
-  campo_respuesta.css("font-size", "70px");
+  campo_respuesta.css("font-size", "90px");
   campo_respuesta.css("padding-top", "60px");
 
   boton_consultar_precio.show();
@@ -173,6 +182,7 @@ boton_precio.on("click", function(event) {
   campo_respuesta.show();
   boton_todos_precios.show();
   boton_regresar.show();
+  imagen_menu_precios.show();
 });
 
 //Boton de Regresar al Menu
@@ -191,8 +201,12 @@ boton_regresar.on("click", function() {
   retirar_rodamiento.hide();
   label.hide();
   foto_menu_disponible.hide();
+  imagen_menu_precios.hide();
+  foto_menu_ventas.hide();
 
   titulo.text("Rodamientos");
+
+  container.css("padding-top", "0px");
 
   boton_historial_ventas.css("width", "820px");
 
@@ -234,6 +248,8 @@ boton_historial_ventas.on("click", function() {
   foto_portada_superior.hide();
   foto_portada_inferior.hide();
 
+  container.css("padding-top", "330px");
+
   if (rodamientos_tabla == false) {
     rodamientos_tabla  = true;
     imagen_historial_ventas
@@ -246,6 +262,7 @@ boton_historial_ventas.on("click", function() {
   }
 
   boton_regresar.show();
+  foto_menu_ventas.show();
 });
 
 //Boton que muestra para calcular una orden de rodamientos
@@ -262,8 +279,10 @@ boton_orden_rodamientos.on("click", function() {
   container.css("padding-top", "330px");
   campo_respuesta.css("width", "900px");
   campo_respuesta.css("height", "160px");
-  campo_respuesta.css("font-size", "70px");
+  campo_respuesta.css("font-size", "90px");
   campo_respuesta.css("padding-top", "60px");
+  campo_respuesta.css("margin-bottom", "60px");
+  rodamiento_seleccionado.css("margin-bottom", "40px");
 
   input_calcular_rodamientos.val("");
   boton_calcular_rodamientos.show();
@@ -283,7 +302,7 @@ boton_calcular_rodamientos.on("click", function() {
   input_calcular_rodamientos.val("");
   campo_respuesta.css("width", "900px");
   campo_respuesta.css("height", "160px");
-  campo_respuesta.css("font-size", "70px");
+  campo_respuesta.css("font-size", "90px");
   campo_respuesta.css("padding-top", "60px");
   if (rodamiento_solicitado == 6201) {
     calcular_orden_rodamientos(rodamiento_6201, cantidad);
@@ -301,9 +320,9 @@ boton_calcular_rodamientos.on("click", function() {
     calcular_orden_rodamientos(rodamiento_carro, cantidad);
   } else {
     campo_respuesta.css("width", "900px");
-    campo_respuesta.css("height", "270px");
-    campo_respuesta.css("font-size", "60px");
-    campo_respuesta.css("padding-top", "1px");
+    campo_respuesta.css("height", "320px");
+    campo_respuesta.css("font-size", "90px");
+    campo_respuesta.css("padding-top", "0px");
     campo_respuesta.html(`<p>Por Favor Introduzca Un Rodamiento, y Solo Seleccione Uno</p>`);
   }
 
@@ -321,11 +340,15 @@ boton_retirar_rodamientos.on("click", function() {
 
   campo_respuesta.text("Retira Un Rodamiento");
 
-  container.css("padding-top", "330px");
+  container.css("padding-top", "230px");
   campo_respuesta.css("width", "900px");
   campo_respuesta.css("height", "150px");
-  campo_respuesta.css("font-size", "70px");
+  campo_respuesta.css("font-size", "90px");
   campo_respuesta.css("padding-top", "60px");
+
+  rodamiento_seleccionado.css("margin-bottom", "40px");
+
+  titulo.text("Retirar");
 
   input_calcular_rodamientos.val("");
   rodamiento_seleccionado.show();
@@ -344,7 +367,7 @@ retirar_rodamiento.on("click", function() {
   input_calcular_rodamientos.val("");
   campo_respuesta.css("width", "900px");
   campo_respuesta.css("height", "150px");
-  campo_respuesta.css("font-size", "70px");
+  campo_respuesta.css("font-size", "90px");
   campo_respuesta.css("padding-top", "60px");
   if (rodamiento_solicitado == 6201) {
     rodamiento_retirar(rodamiento_6201, cantidad);
@@ -363,7 +386,7 @@ retirar_rodamiento.on("click", function() {
   } else {
     campo_respuesta.css("width", "900px");
     campo_respuesta.css("height", "250px");
-    campo_respuesta.css("font-size", "60px");
+    campo_respuesta.css("font-size", "90px");
     campo_respuesta.css("padding-top", "1px");
     campo_respuesta.html(`<p>Introduzca Un Rodamiento, y Solo Seleccione Uno</p>`);
   }
