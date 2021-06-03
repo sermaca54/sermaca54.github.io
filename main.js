@@ -320,7 +320,7 @@ boton_calcular_rodamientos.on("click", function() {
     calcular_orden_rodamientos(rodamiento_carro, cantidad);
   } else {
     campo_respuesta.css("width", "900px");
-    campo_respuesta.css("height", "320px");
+    campo_respuesta.css("height", "340px");
     campo_respuesta.css("font-size", "90px");
     campo_respuesta.css("padding-top", "0px");
     campo_respuesta.html(`<p>Por Favor Introduzca Un Rodamiento, y Solo Seleccione Uno</p>`);
@@ -385,7 +385,7 @@ retirar_rodamiento.on("click", function() {
     rodamiento_retirar(rodamiento_carro, cantidad);
   } else {
     campo_respuesta.css("width", "900px");
-    campo_respuesta.css("height", "250px");
+    campo_respuesta.css("height", "280px");
     campo_respuesta.css("font-size", "90px");
     campo_respuesta.css("padding-top", "1px");
     campo_respuesta.html(`<p>Introduzca Un Rodamiento, y Solo Seleccione Uno</p>`);
