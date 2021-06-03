@@ -22,7 +22,7 @@ main {
   padding-top: 0px;
   font-size: 80px;
   font-family: 'Grenze Gotisch', cursive;
-  width: 700px;
+  width: 750px;
   height: 150px;
   text-align: center;
 
@@ -57,11 +57,19 @@ main {
 }
 
 #menu_consultar_precio {
+  color: #595857;
   text-align: center;
-  font-size: 70px;
+  font-size: 90px;
   margin-bottom: 40px;
-  width: 530px;
-  height: 100px;
+  width: 450px;
+  height: 140px;
+  font-family: 'Karantina', cursive;
+  background-color: #f0ddd5;
+
+  border-radius: 10%;
+  border-color: #b06646;
+  border-style: groove;
+  border-width: 20px;
 }
 
 #menu_calcular_precio {
@@ -81,9 +89,18 @@ main {
 }
 #menu_retirar_rodamiento {
   text-align: center;
-  font-size: 70px;
-  margin-bottom: 40px;
-  width: 700px;
+  width: 600px;
+  height: 160px;
+  margin-bottom: 70px;
+  color: #595857;
+
+  font-size: 90px;
+  font-family: 'Karantina', cursive;
+  background-color: #f0ddd5;
+  border-radius: 10%;
+  border-color: #ad8787;
+  border-style: groove;
+  border-width: 25px;
 }
 #boton_historial_ventas {
   text-align: center;
@@ -102,8 +119,18 @@ main {
 }
 #boton_calcular_rodamientos {
   text-align: center;
-  font-size: 70px;
-  margin-bottom: 40px;
+  width: 750px;
+  height: 160px;
+  margin-bottom: 70px;
+  color: #595857;
+
+  font-size: 90px;
+  font-family: 'Karantina', cursive;
+  background-color: #f0ddd5;
+  border-radius: 10%;
+  border-color: #ad8787;
+  border-style: groove;
+  border-width: 25px;
 }
 #boton_orden_rodamientos {
   text-align: center;
@@ -153,10 +180,18 @@ main {
 
 #boton_todos_precios {
   text-align: center;
-  font-size: 70px;
-  margin-bottom: 40px;
-  width: 630px;
-  height: 100px;
+  width: 600px;
+  height: 160px;
+  margin-bottom: 70px;
+  color: #595857;
+
+  font-size: 90px;
+  font-family: 'Karantina', cursive;
+  background-color: #f0ddd5;
+  border-radius: 10%;
+  border-color: #ad8787;
+  border-style: groove;
+  border-width: 25px;
 }
 
 #menu_consultar_disponibilidad {
@@ -207,15 +242,27 @@ main {
   right: 0px;
 
 }
-#rodamientos_consultar {
 
+
+#imagen_menu_precios {
+  width: 400px;
 }
 
 #calcular_rodamiento {
-  margin-bottom: 40px;
-  font-size: 70px;
+  margin-bottom: 60px;
+  font-size: 90px;
   text-align: center;
+  width: 200px;
+  height: 90px;
+  border-color: #ad8787;
+  border-style: inset;
+  border-width: 10px;
+  font-family: sans-serif;
 
+}
+
+#foto_menu_ventas {
+  width: 700px;
 }
 
 .titulo {
